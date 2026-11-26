@@ -10,6 +10,14 @@ public class PasswordAnalyzer {
 
         String password = input.nextLine();
 
-        System.out.println("Password entered successfully.");
+
+        System.out.println("Password length: " + password.length());
+
+        if (password.length() >= 8) {
+            System.out.println("Password meets the minimum length.");
+        } else {
+            System.out.println("Password is too short.");
+        }
+
     }
 }
