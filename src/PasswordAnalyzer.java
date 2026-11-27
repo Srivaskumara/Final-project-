@@ -101,5 +101,33 @@ public class PasswordAnalyzer {
             System.out.println("Password strength: Strong");
         }
 
+
+        System.out.println("Suggestions:");
+
+        if (password.length() < 8) {
+            System.out.println("- Make your password at least 8 characters long.");
+        }
+
+        if (!hasUpper) {
+            System.out.println("- Add an uppercase letter.");
+        }
+
+        if (!hasLower) {
+            System.out.println("- Add a lowercase letter.");
+        }
+
+        if (!hasNumber) {
+            System.out.println("- Add a number.");
+        }
+
+        if (!hasSymbol) {
+            System.out.println("- Add a symbol.");
+        }
+
+        if (hasCommonPattern) {
+            System.out.println("- Avoid common patterns.");
+        }
+
+
     }
 }
