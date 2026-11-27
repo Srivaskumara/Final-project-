@@ -59,5 +59,47 @@ public class PasswordAnalyzer {
         } else {
             System.out.println("No common patterns found.");
         }
+
+
+        int score = 0;
+
+        if (password.length() >= 8) {
+            score++;
+        }
+
+        if (hasUpper) {
+            score++;
+        }
+
+        if (hasLower) {
+            score++;
+        }
+
+        if (hasNumber) {
+            score++;
+        }
+
+        if (hasSymbol) {
+            score++;
+        }
+
+        if (hasCommonPattern) {
+            score -= 2;
+        }
+
+        if (score < 0) {
+            score = 0;
+        }
+
+        System.out.println("Password score: " + score);
+
+        if (score <= 2) {
+            System.out.println("Password strength: Weak");
+        } else if (score <= 4) {
+            System.out.println("Password strength: Medium");
+        } else {
+            System.out.println("Password strength: Strong");
+        }
+
     }
 }
