@@ -1,14 +1,23 @@
 
 import java.util.Scanner;
+import java.security.SecureRandom;
 
 public class PasswordAnalyzer {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Password Strength Analyzer");
-        System.out.print("Enter a password: ");
 
+        System.out.println("Password Strength Analyzer");
+        System.out.println("1. Check password strength");
+        System.out.println("2. Generate a password");
+        System.out.print("Enter your choice: ");
+
+        int choice = input.nextInt();
+        input.nextLine();
+        if(choice==1){
+
+        System.out.print("Enter a password: ");
         String password = input.nextLine();
 
         System.out.println("Password length: " + password.length());
@@ -137,6 +146,23 @@ public class PasswordAnalyzer {
         if (hasCommonPattern) {
             System.out.println("- Avoid common patterns.");
         }
+
+        } else if (choice == 2) {
+            SecureRandom random = new SecureRandom();
+
+            String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+            String generatedPassword = "";
+
+            for (int i = 0; i < 12; i++) {
+                int index = random.nextInt(characters.length());
+                generatedPassword += characters.charAt(index);
+            }
+
+            System.out.println("Generated password: " + generatedPassword);
+        } else {
+            System.out.println("Invalid choice.");
+        }
+
 
 
     }
