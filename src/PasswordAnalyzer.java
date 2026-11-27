@@ -33,9 +33,11 @@ public class PasswordAnalyzer {
                 hasLower = true;
             } else if (Character.isDigit(c)) {
                 hasNumber = true;
-            } else {
+
+            } else if (!Character.isWhitespace(c)) {
                 hasSymbol = true;
             }
+
         }
 
         System.out.println("Uppercase: " + hasUpper);
@@ -103,6 +105,14 @@ public class PasswordAnalyzer {
 
 
         System.out.println("Suggestions:");
+
+
+        if (password.length() >= 8 && hasUpper && hasLower &&
+                hasNumber && hasSymbol && !hasCommonPattern) {
+            System.out.println("- No improvements needed based on these checks.");
+        }
+
+
 
         if (password.length() < 8) {
             System.out.println("- Make your password at least 8 characters long.");
